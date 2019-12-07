@@ -1,0 +1,40 @@
+<html>
+<head>
+    
+    
+    
+    </head>
+    <body>
+    
+    <div id="messagebox"></div>
+    <button onclick="stoptimer()">stop time</button>
+    <script>
+    //    var kd=setInterval(function(){
+      /*      alert("this is my interval")
+        },5000); */
+     /*    var kd=setTimeout(function(){
+           alert("this is my interval")
+        },3000);*/
+        var kd=setInterval(function(){timer()},1000);
+        var mybutton=document.getElementsByTagName("button")[0];
+        //alert(mybutton.innerHTML);
+        function timer(){
+            
+            var database=new Date();
+            var timer=database.toLocaleTimeString();
+            document.getElementById("messagebox").innerHTML=timer;
+        }
+        function stoptimer(){
+            clearInterval(kd);
+            mybutton.innerHTML="start time";
+            mybutton.setAttribute("onclick","startTimer()");
+        }
+        function startTimer(){
+            kd=setInterval(function() {timer()} , 1000);
+             mybutton.innerHTML="stop time";
+            mybutton.setAttribute("onclick","stoptimer()");
+        
+        }
+        
+        </script>
+    </body>
